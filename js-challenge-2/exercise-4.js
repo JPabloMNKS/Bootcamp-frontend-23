@@ -19,4 +19,7 @@ var integrado = data.reduce((a, b) =>
    a.concat(b)
 ,[]);
 
+var integrado2 = data.join(' ');
+
 console.log(integrado);
+console.log(integrado2);
