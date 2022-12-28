@@ -1,116 +1,275 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carta Yu-Gi-Oh!</title>
     <style>
-        body {
-            font-family: sans-serif;
-        }
-
-        .carta {
-            width: 300px;
-            border: 1px solid #000;
-            background-color: #FFF;
-            padding: 10px;
-        }
-
-        .titulo {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-
-
-        .stars {
-            display: flex;
-            justify-content: flex-end;
-            padding: 0px 35px;
-        }
-
-        .stars .star {
-            width: 20px;
-            height: 20px;
-            justify-content: flex-end;
-            margin-left: 1px;
-        }
-
-
-        .monster-image {
-            display: flex;
-            flex-direction: column;
-            padding: 11px 42px 0;
-        }
-
-        .description {
-            display: flex;
-            flex-direction: column;
-            padding: 4px 30px 2px;
-        }
-
-        .description .monster-type {
-            font-family: bold;
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .description .monster-description {
-            font-size: 11px;
-            margin: 0 0 4px;
-        }
-
-        .description .power {
-            display: flex;
-            justify-content: flex-start;
-            padding-left: 155px;
-            font-size: 13px;
-
-        }
-
-        .description .power .atk {
-            font-family: bold;
-            margin-right: 20px;
-            margin-top: 2px;
-        }
-
-        .description .power .def {
-            font-family: bold;
-            margin-top: 2px;
-        }
+      .cards-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <h1>CHALLENGE</h1>
-    <div class="carta">
-        <h1 class="titulo">Mago Oscuro</h1>
-        <div>
-            <div class="stars">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/491/491466.png" class="star">
-            </div>
+  <body class="cards-container">
+    <yugioh-card
+      monsterName="Mago Oscuro"
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/Foto_mago_oscuro.png"
+      monsterSerie="Yug-006"
+      monsterType="[Lanzador de conjuros]"
+      monsterDescription="El más grande de los magos en relación con el ataque y la defensa"
+      monsterATK="2500"
+      monsterDEF="2100"
+    >
+    </yugioh-card>
 
-            <div class="monster-image">
-                <img src="https://i.pinimg.com/originals/e8/98/79/e8987945d4faba86d08d1b5a56e40bb8.jpg" alt="">
-            </div>
+    <yugioh-card
+      monsterName="Dragon alado de Ra"
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/aladodera.jpg"
+      monsterSerie="LC01-003"
+      monsterType="[Bestia Divina]"
+      monsterDescription="El canto espiritual de una criatura de gran alcance que gobierna sobre todo lo que es mistico"
+      monsterATK="????"
+      monsterDEF="????"
+    >
+    </yugioh-card>
 
+    <yugioh-card
+      monsterName="Craneo Convocado"
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/craneo_convocado.webp"
+      monsterSerie="YSYR-SP004"
+      monsterType="[Demonio]"
+      monsterDescription="Un demonio con poderes oscuros para confundir al enemigo. Entre los monstruos de tipo demonio, este monstruo alardea de considerable fuerza"
+      monsterATK="2500"
+      monsterDEF="1200"
+    >
+    </yugioh-card>
 
-            <div class="description">
-                <h3 class="monster-type">[Lanzador de conjuros]</h3>
-                <p class="monster-description">El más grande de los magos en relación con el ataque y la defensa</p>
-                <div class="power">
-                    <span class="atk">2500</span>
-                    <span class="def">2100</span>
-                </div>
+    <yugioh-card
+      monsterName="Dragon blanco "
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/dragon_blanco_de_ojos_azules.webp"
+      monsterSerie="STP1-SP004"
+      monsterType="[Dragon / Normal]"
+      monsterDescription="Este legendario dragon es una poderosa maquina de destuccion. Virtualmente invencible, muy pocos se han enfrentado a esta empresionante criatura y han vivido para contarlo"
+      monsterATK="3000"
+      monsterDEF="2500"
+    >
+    </yugioh-card>
 
-            </div>
+    <yugioh-card
+      monsterName="Kuribo "
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/kuribo.jpg"
+      monsterSerie="STP1-SP004"
+      monsterType="[Demonio / Efecto]"
+      monsterDescription="Descarta esta carta de tu mano para hacer que el daño de batalla inflingido por 1 monstruo de tu adversario a tus Life Points"
+      monsterATK="300"
+      monsterDEF="200"
+    >
+    </yugioh-card>
+
+    <yugioh-card
+      monsterName="Maga Oscura "
+      monsterPower="./assets/EARTH.svg"
+      monsterStars="./assets/star.png"
+      monsterImage="./assets/magaoscura.jpg"
+      monsterSerie="STP1-SP004"
+      monsterType="[Lanzadora de conjuros / Efecto]"
+      monsterDescription="Esta carta gana 300 ATK por cada mago oscuro en el cementerio de cualquier jugador"
+      monsterATK="2000"
+      monsterDEF="1700"
+    >
+    </yugioh-card>
+
+    <template id="yuGiOhCardTemplate">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="monster-name"></h1>
+          <img src="" class="monster-power" />
         </div>
-    </div>
-</body>
+        <div class="card-stars">
+          <img src="" alt="" class="monster-stars" />
+        </div>
+        <div class="card-body">
+          <img src="" class="monster-image" />
+        </div>
+        <div class="serie">
+          <p class="monster-serie"></p>
+        </div>
 
+        <div class="card-description">
+          <h3 class="monster-type"></h3>
+          <p class="monster-description"></p>
+          <div class="power">
+            <span class="monster-atk"></span>
+            <span class="monster-def"></span>
+          </div>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+
+      <style>
+        .card {
+          background: url('./assets/card-background.png') no-repeat;
+          display: flex;
+          flex-direction: column;
+          width: 400px;
+        }
+
+        .card-header {
+          display: flex;
+          padding-left: 0.8rem;
+          padding-top: 0.8rem;
+          margin-left: 1.25rem;
+          margin-right: 2.25rem;
+          margin-top: 1rem;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .card-header > .monster-name {
+          font-size: 25px;
+          font-family: 'Lucida Sans';
+          margin: 0;
+          font-weight: bold;
+        }
+
+        .card-header .monster-power {
+          width: 30px;
+          height: 30px;
+        }
+
+        .card-stars {
+          display: flex;
+          justify-content: flex-end;
+          padding: 7px 43px;
+        }
+        .card-stars .monster-stars {
+          display: flex;
+          margin-top: 0.25rem;
+          margin-bottom: 0.25rem;
+          justify-content: flex-end;
+          width: 25px;
+          height: 25px;
+        }
+
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .card-body .monster-image {
+          width: 304px;
+        }
+        .serie {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .serie > .monster-serie {
+          font-weight: 700;
+          font-size: x-small;
+          margin: 6px 40px;
+        }
+
+        .card-description {
+          display: flex;
+          flex-direction: column;
+          padding: 4px 30px 70px;
+        }
+        .card-description .monster-type {
+          font-family: bold;
+          margin: 0;
+          font-size: 14px;
+        }
+        .card-description .monster-description {
+          font-size: 11px;
+          height: 53px;
+          /* margin: 0 0 64px; */
+        }
+        .card-description .power {
+          display: flex;
+          justify-content: flex-end;
+          font-size: 13px;
+          font-weight: 800;
+          font-family: bold;
+        }
+        .card-description .monster-atk {
+          margin-right: 60px;
+        }
+        .card-description .monster-def {
+          margin-right: 5px;
+        }
+      </style>
+    </template>
+
+    <script>
+      class YuGiOhCard extends HTMLElement {
+        constructor() {
+          super();
+
+          let shadow = this.attachShadow({ mode: 'closed' });
+
+          let templateElem = document.getElementById('yuGiOhCardTemplate');
+          let content = templateElem.content.cloneNode(true);
+
+          content.querySelector('.card-header>.monster-name').innerText =
+            this.getAttribute('monsterName');
+
+          content
+            .querySelector('img.monster-stars')
+            .setAttribute('src', this.getAttribute('monsterStars'));
+
+          content
+            .querySelector('img.monster-power')
+            .setAttribute('src', this.getAttribute('monsterPower'));
+
+          content
+            .querySelector('img.monster-image')
+            .setAttribute('src', this.getAttribute('monsterImage'));
+
+          content.querySelector('.serie>.monster-serie').innerText =
+            this.getAttribute('monsterSerie');
+
+          content.querySelector('.card-description>.monster-type').innerText =
+            this.getAttribute('monsterType');
+
+          content.querySelector(
+            '.card-description>.monster-description'
+          ).innerText = this.getAttribute('monsterDescription');
+
+          content.querySelector(
+            '.card-description>.power>.monster-atk'
+          ).innerText = this.getAttribute('monsterATK');
+
+          content.querySelector(
+            '.card-description>.power>.monster-def'
+          ).innerText = this.getAttribute('monsterDEF');
+
+          // ***monsterName="nombre"***
+          // ***monsterPower="src"***
+          // ---monsterStars="4"---
+          // ***monsterImage="src"***
+          // ***monsterSerie="text"***
+          // ***monsterType="text/type"***
+          // ***monsterDescription="text/description"***
+          // ***monsterATK="100"***
+          // ***monsterDEF="100"***
+
+          shadow.appendChild(content);
+        }
+      }
+      customElements.define('yugioh-card', YuGiOhCard);
+    </script>
+  </body>
 </html>
