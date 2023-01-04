@@ -1,59 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Challenge</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <article class="player_one board_container">
-      <section class="left_spells">
-        <div class="left_spell_one card"></div>
-        <div class="left_spell_two card"></div>
-        <div class="left_spell_three card"></div>
-        <div class="left_spell_four card"></div>
-      </section>
-      <section class="board">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </section>
-      <section class="right_spells">
-        <div class="right_spell_one card"></div>
-        <div class="right_spell_two card"></div>
-        <div class="right_spell_three card"></div>
-      </section>
-    </article>
-    <article class="player_two board_container">
-      <section class="left_spells">
-        <div class="left_spell_one card"></div>
-        <div class="left_spell_two card"></div>
-        <div class="left_spell_three card"></div>
-        <div class="left_spell_four card"></div>
-      </section>
-      <section class="board">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </section>
-      <section class="right_spells">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </section>
-    </article>
-  </body>
+
+<head>
+  <title>Challenge</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <article class="player_one board_container">
+    <section class="left_spells">
+      <div class="left_spell_one card"></div>
+      <div class="left_spell_two card"></div>
+      <div class="left_spell_three card"></div>
+      <div class="left_spell_four card"></div>
+    </section>
+    <section class="board">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card">
+        <yugioh-card 
+        monsterName="Mago Oscuro" 
+        monsterPower="./assets/EARTH.svg" 
+        monsterStars="./assets/star.png"
+        monsterImage="./assets/Foto_mago_oscuro.png" 
+        monsterSerie="Yug-006" 
+        monsterType="[Lanzador de conjuros]"
+        monsterDescription="El más grande de los magos en relación con el ataque y la defensa" 
+        monsterATK="2500" monsterDEF="2100">
+      </div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </section>
+    <section class="right_spells">
+      <div class="right_spell_one card"></div>
+      <div class="right_spell_two card"></div>
+      <div class="right_spell_three card"></div>
+    </section>
+  </article>
+  <article class="player_two board_container">
+    <section class="left_spells">
+      <div class="left_spell_one card"></div>
+      <div class="left_spell_two card"></div>
+      <div class="left_spell_three card"></div>
+      <div class="left_spell_four card"></div>
+    </section>
+    <section class="board">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card">
+        <yugioh-card 
+        monsterName="Maga Oscura" 
+        monsterPower="./assets/EARTH.svg" 
+        monsterStars="./assets/star.png"
+        monsterImage="./assets/magaoscura.jpg" 
+        monsterSerie="STP1-SP004"
+        monsterType="[Lanzadora de conjuros / Efecto]"
+        monsterDescription="Esta carta gana 300 ATK por cada mago oscuro en el cementerio de cualquier jugador"
+        monsterATK="2000" monsterDEF="1700">
+        </yugioh-card>
+      </div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card">
+        <yugioh-card 
+        monsterName="Kuribo" 
+        monsterPower="./assets/EARTH.svg" 
+        monsterStars="./assets/star.png"
+        monsterImage="./assets/kuribo.jpg" 
+        monsterSerie="STP1-SP004" 
+        monsterType="[Demonio / Efecto]"
+        monsterDescription="Descarta esta carta de tu mano para hacer que el daño de batalla inflingido por 1 monstruo de tu adversario a tus Life Points"
+        monsterATK="300" monsterDEF="200">
+        </yugioh-card>
+      </div>
+      <div class="card"></div>
+    </section>
+    <section class="right_spells">
+      <div class="right_spell_one card"></div>
+      <div class="right_spell_two card"></div>
+      <div class="right_spell_three card"></div>
+    </section>
+  </article>
+
+  <template id="yuGiOhCardTemplate">
+    <link rel="stylesheet" href="./styles-yugioh-card.css">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="monster-name"></h1>
+        <img src="" class="monster-power" />
+      </div>
+      <div class="card-stars">
+        <img src="" alt="" class="monster-stars" />
+      </div>
+      <div class="card-body">
+        <img src="" class="monster-image" />
+      </div>
+      <div class="serie">
+        <p class="monster-serie"></p>
+      </div>
+
+      <div class="card-description">
+        <h3 class="monster-type"></h3>
+        <p class="monster-description"></p>
+        <div class="power">
+          <span class="monster-atk"></span>
+          <span class="monster-def"></span>
+        </div>
+      </div>
+      <div class="card-footer"></div>
+    </div>
+  </template>
+  <script src="./yugioh-card.js"></script>
+</body>
+
 </html>
