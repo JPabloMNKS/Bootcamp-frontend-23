@@ -1,0 +1,147 @@
+@display: grid;
+@rotate: rotateZ(180deg);
+@margin: 20px;
+@fr_cols: 2fr 5fr 2fr;
+@fr_rows: 1fr 1fr 1fr;
+@spell_columns: 1fr 1fr;
+@gap_row: 10px;
+@gap_col: 10px;
+@fr_repeat: repeat(5, 1fr);
+@width: 110px;
+@height: 160px;
+@outline: 4px solid black;
+@margin: 4px;
+@card_img: url('../assets/empty_place.png');
+@img_width: 300px;
+@img_height: 100px;
+@justify: end;
+@text_align: center;
+
+.board_container {
+    display: @display;
+    grid-template-columns: @fr_cols;
+}
+
+.player_one {
+    display: @display;
+    margin-bottom: @margin;
+}
+
+.player_two {
+    display: @display;
+    transform: @rotate;
+}
+
+.left_spells {
+    display: @display;
+    grid-template-columns: @spell_columns;
+    grid-template-rows: @fr_rows;
+    justify-items: @justify;
+}
+
+.right_spells {
+    display: @display;
+    grid-template-columns: @spell_columns;
+    grid-template-rows: @fr_rows;
+}
+
+.board {
+    display: @display;
+    grid-row-gap: @gap_row;
+    grid-column-gap: @gap_col;
+    grid-template-columns: @fr_repeat;
+    grid-template-rows: repeat(2, 1fr);
+    align-self: center;
+    justify-items: @text_align;
+}
+
+.card {
+    border: 3px solid white;
+    background-image: @card_img;
+    width: @width;
+    height: @height;
+    outline: @outline;
+    margin: @margin;
+}
+
+.left_spell_one {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.left_spell_two {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.left_spell_three {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.left_spell_four {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.right_spell_one {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.right_spell_two {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.right_spell_three {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer {
+    display: flex; 
+    justify-content: @text_align;
+}
+
+.header{
+    display: flex; 
+    justify-content: @text_align;
+    img{
+        width: @img_width; 
+        height: @img_height;
+    }
+}
+
+@media only screen and (max-width: 1199px){
+    .left_spells{
+        display: none;
+    }
+    .right_spells{
+        display: none;
+    }
+    .board_container{
+        display: inherit;
+        justify-content: @text_align;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .header{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header >img{
+        width: @img_width; 
+        height: @img_height - 10px;
+    }
+} 
