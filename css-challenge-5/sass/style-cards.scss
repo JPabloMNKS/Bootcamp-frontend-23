@@ -1,0 +1,152 @@
+// Variables
+$rotation: 180deg;
+$background-url: '../assets/card-background.png';
+$card-header-padding: 0.2rem;
+$card-header-margin: 0.3125rem 0.5625rem -0.025rem;
+$card-header-name-font-size: 6.25px;
+$card-header-name-font-family: 'Lucida Sans';
+$card-header-power-size: 7.5px;
+$card-stars-padding: 1.75px 10px;
+$card-stars-top-bottom-margin: 0.15rem;
+$card-body-image-width: 85px;
+$serie-margin: 0.5px 10px;
+$card-description-padding: 1px 8px 20px;
+$card-description-type-font-family: bold;
+$card-description-type-font-size: 5px;
+$card-description-power-font-size: 4px;
+$card-description-power-font-weight: 800;
+$card-description-atk-def-margin: 8px;
+
+// Mixins
+@mixin rotate {
+    transform: rotateZ(#{$rotation});
+}
+
+@mixin background {
+    background: url($background-url) no-repeat;
+    background-size: cover;
+}
+
+@mixin card-header {
+    display: flex;
+    padding-left: $card-header-padding;
+    padding-top: $card-header-padding;
+    margin: $card-header-margin;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin monster-name {
+    font-size: $card-header-name-font-size;
+    font-family: $card-header-name-font-family;
+    margin: 0;
+    font-weight: bold;
+}
+
+@mixin monster-power {
+    width: $card-header-power-size;
+    height: $card-header-power-size;
+}
+
+@mixin card-stars {
+    display: flex;
+    justify-content: flex-end;
+    padding: $card-stars-padding;
+
+    .monster-stars {
+        display: flex;
+        margin: $card-stars-top-bottom-margin;
+        justify-content: flex-end;
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@mixin card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .monster-image {
+        width: $card-body-image-width;
+    }
+}
+
+@mixin serie {
+    display: flex;
+    justify-content: flex-end;
+
+    .monster-serie {
+        font-size: 3px;
+        margin: $serie-margin;
+    }
+}
+
+@mixin card-description {
+    display: flex;
+    flex-direction: column;
+    padding: $card-description-padding;
+
+    .monster-type {
+        font-family: $card-description-type-font-family;
+        margin: 0;
+        font-size: $card-description-type-font-size;
+    }
+
+    .monster-description {
+        font-size: 4px;
+        height: 12px;
+    }
+
+    .power {
+        display: flex;
+        justify-content: flex-end;
+        font-size: $card-description-power-font-size;
+        font-weight: $card-description-power-font-weight;
+    }
+
+    .monster-atk {
+        margin-right: $card-description-atk-def-margin;
+    }
+
+    .monster-def {
+        margin-right: $card-description-atk-def-margin;
+    }
+}
+
+// Card
+.card {
+    @include rotate;
+    @include background;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &-header {
+        @include card-header;
+        >.monster-name {
+            @include monster-name;
+        }
+        .monster-power {
+            @include monster-power;
+        }
+    }
+
+    &-stars {
+        @include card-stars;
+    }
+
+    &-body {
+        @include card-body;
+    }
+
+    .serie {
+        @include serie;
+    }
+
+    &-description {
+        @include card-description;
+    }
+}

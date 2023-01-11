@@ -1,0 +1,121 @@
+$card-width: 110px;
+$card-height: 160px;
+$header-height: 100px;
+$header-img-height: 90px;
+
+
+.board_container {
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr;
+    .player_one {
+        display: grid;
+        margin-bottom: 20px;
+    }
+
+    .player_two {
+        display: grid;
+        transform: rotateZ(180deg);
+    }
+
+    .left_spells {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: end;
+        & > .left_spell_one {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        & > .left_spell_two {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        & > .left_spell_three {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        & > .left_spell_four {
+            grid-column: 2;
+            grid-row: 3;
+        }
+    }
+
+    .right_spells {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        & > .right_spell_one {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        & > .right_spell_two {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        & > .right_spell_three {
+            grid-column: 1;
+            grid-row: 3;
+        }
+    }
+
+    .board {
+        display: grid;
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        align-self: center;
+        justify-items: center;
+    }
+}
+
+
+.card {
+    border: 3px solid white;
+    background-image: url('../assets/empty_place.png');
+    width: $card-width;
+    height: $card-height;
+    outline: 4px solid black;
+    margin: 4px;
+}
+
+@mixin flex-center {
+    display: flex; 
+    justify-content: center;
+}
+
+
+.footer{
+    @include flex-center;
+}
+
+.header{
+    @include flex-center;
+    >img{
+        width: 300px; 
+        height: $header-height;
+    }
+    @media only screen and (min-width: 1200px) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 100;
+        >img{
+            height: $header-img-height;
+        }
+    }
+}
+
+@media only screen and (max-width: 1199px){
+    .left_spells{
+        display: none;
+    }
+    .right_spells{
+        display: none;
+    }
+    .board_container{
+        display: inherit;
+        justify-content: center;
+    }
+}
