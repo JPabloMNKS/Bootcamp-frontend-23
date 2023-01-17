@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Bootstrap demo</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -15,22 +15,25 @@
   <body>
     <h1>Challenge</h1>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
+    <div class="container-fluid justify-content-center">
+      <div class="row" style="max-width: 800px">
+        <div class="col-md-6">
           <form>
-            <div class="form-group">
-              <label for="name">Nombre:</label>
+            <div class="form-group form-question">
+              <label for="name">Nombre completo:</label>
               <input
                 type="text"
                 class="form-control"
                 id="name"
                 name="name"
-                placeholder="Ingrese su nombre"
-                oninput="showInfo(this.value, 'name-info')"
+                placeholder="Ingrese su nombre completo"
+                oninput="
+                  showInfo('Por favor ingrese los nombres y apellidos completos que tenga');
+                  clearInfo()
+                "
               />
             </div>
-            <div class="form-group">
+            <div class="form-group form-question">
               <label for="email">Email:</label>
               <input
                 type="email"
@@ -38,10 +41,13 @@
                 id="email"
                 name="email"
                 placeholder="Ingrese su correo electrónico"
-                oninput="showInfo(this.value, 'email-info')"
+                oninput="
+                  showInfo('Asegurese de poner un correo electrónico valido'); 
+                  validateEmail(this.value);
+                "
               />
             </div>
-            <div class="form-group">
+            <div class="form-group form-question">
               <label for="password">Contraseña:</label>
               <input
                 type="password"
@@ -49,10 +55,13 @@
                 id="password"
                 name="password"
                 placeholder="Ingrese su contraseña"
-                oninput="showInfo(this.value, 'password-info')"
+                oninput="
+                  showInfo('Recuerda usar una contraseña segura'); 
+                  validatePassword(this.value);
+                "
               />
             </div>
-            <div class="form-group">
+            <div class="form-group form-question">
               <label for="phone">Teléfono:</label>
               <input
                 type="tel"
@@ -60,44 +69,46 @@
                 id="phone"
                 name="phone"
                 placeholder="Ingrese su número de teléfono"
-                oninput="showInfo(this.value, 'phone-info')"
+                oninput="
+                  showInfo('La información de tu celular esta seguro con nosotros');
+                  validatePhoneNumber(this.value)
+                "
               />
             </div>
-            <div class="form-group">
+            <div class="form-group form-question">
               <label for="address">Dirección:</label>
               <textarea
                 class="form-control"
                 id="address"
                 name="address"
                 placeholder="Ingrese su dirección"
-                oninput="showInfo(this.value, 'address-info')"
+                oninput="
+                  showInfo(`Ingrese: Zona/calle/numero edificio/piso/departamento si es necesario `);
+                  clearInfo()
+                "
               ></textarea>
             </div>
             <input type="submit" class="btn btn-primary" value="Registrarse" />
           </form>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <div class="sidebar">
-            <p id="name-info"></p>
-            <p id="email-info"></p>
-            <p id="password-info"></p>
-            <p id="phone-info"></p>
-            <p id="address-info"></p>
+            <p id="info"></p>
+            <p id="info2"></p>
           </div>
         </div>
       </div>
     </div>
-
-    <script>
-      function showInfo(value, id) {
-        document.getElementById(id).innerHTML = value;
-      }
-    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./showInfo.js"></script>
+    <script src="./validateEmail.js"></script>
+    <script src="./validatePassword.js"></script>
+    <script src="./validatePhoneNumber.js"></script>
   </body>
 </html>
