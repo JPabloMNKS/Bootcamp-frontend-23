@@ -1,9 +1,15 @@
+import axios from 'axios';
+
 const MAX_ID = 25;
 
 type Move = {
   name: string;
   power: number;
 };
+
+function getPokemon(pokemonID: number) {
+  return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+}
 
 function checkPowerPoint() {
   return function (
@@ -26,7 +32,7 @@ function checkPowerPoint() {
 
 function getPokemonsIds(length: number) {
   return function (target: any, propertyKey: string) {
-    let value = Array.from({ length }, () => getRandomNumber());
+    let value = Array.from({ length }, () => getRandomNumber(MAX_ID));
 
     const getter = function () {
       return value;
@@ -43,8 +49,8 @@ function getPokemonsIds(length: number) {
   };
 }
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * MAX_ID) + 1;
+function getRandomNumber(maxRandomNumber: number) {
+  return Math.floor(Math.random() * maxRandomNumber) + 1;
 }
 
 class Pokemon {
@@ -65,16 +71,42 @@ class Pokemon {
 }
 
 class Trainer {
-  pokemons: Pokemon[];
+  trainerName: string;
+  pokemons: Pokemon[] = [];
   @getPokemonsIds(3)
   listOfPokemonIds: number[];
 
-  constructor(pokemons: Pokemon[]) {
-    this.pokemons = pokemons;
+  constructor(trainerName: string) {
+    this.trainerName = trainerName;
+  }
+
+  async getPokemons() {
+    const listOfPokemons = this.listOfPokemonIds.map((PokemonID) =>
+      getPokemon(PokemonID)
+    );
+    const results = await Promise.all(listOfPokemons);
+    results.forEach((result) => {
+      this.pokemons.push(
+        new Pokemon(result.data.id, result.data.name, getRandomNumber(5))
+      );
+    });
+  }
+
+  async toString() {
+    await this.getPokemons();
+    this.pokemons.sort((a, b) => a.id - b.id);
+    console.log(`Trainer: ${this.trainerName} \n\thave this pokemons \n`);
+
+    this.pokemons.forEach((pokemon) => {
+      console.log(pokemon);
+    });
   }
 }
 
-const move: Move = { name: 'thunderbolt', power: 90 };
-const pikachu = new Pokemon(1, 'pikachu', 1);
-pikachu.figth(move);
-pikachu.figth(move);
+const pepeJunior = new Trainer('Pepe Junior');
+pepeJunior.toString();
+
+// const move: Move = { name: 'thunderbolt', power: 90 };
+// const pikachu = new Pokemon(1, 'pikachu', 1);
+// pikachu.figth(move);
+// pikachu.figth(move);
