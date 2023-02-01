@@ -1,0 +1,15 @@
+{
+  "name": "pm-challenge-2",
+  "version": "1.0.0",
+  "engines": {
+    "yarn": "please-use-npm"
+  },
+  "scripts": {
+    "preinstall": "node -e \"if(process.env.npm_execpath.match('yarn')); throw new Error('You must use NPM to install, not yarn')\""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.16",
+    "express": "^4.18.2"
+  }
+}
