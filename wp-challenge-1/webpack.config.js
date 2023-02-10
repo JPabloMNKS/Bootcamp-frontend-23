@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-
 const commonConfig = {
     entry: {
       main: './src/index.js'
@@ -28,9 +27,13 @@ const commonConfig = {
     mode: 'development',
     devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+      static: path.resolve(__dirname, 'dist'),
     },
   };
+  
   
   const prodConfig = {
     mode: 'production',
