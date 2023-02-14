@@ -1,0 +1,37 @@
+<label>Seleccionar categoría:</label>
+<select [(ngModel)]="categoriaSeleccionada">
+  <option *ngFor="let categoria of categorias">{{ categoria }}</option>
+</select>
+
+<div [ngSwitch]="categoriaSeleccionada">
+  <div *ngSwitchCase="'ropa'">
+    <app-filtros-ropa></app-filtros-ropa>
+  </div>
+  <div *ngSwitchCase="'electronica'">
+    <app-filtros-electronica></app-filtros-electronica>
+  </div>
+  <div *ngSwitchCase="'hogar'">
+    <app-filtros-hogar></app-filtros-hogar>
+  </div>
+  <div *ngSwitchDefault>
+    <p>No hay filtros disponibles para la categoría seleccionada.</p>
+  </div>
+</div>
+
+<div [ngSwitch]="categoriaSeleccionada">
+  <div *ngSwitchCase="'ropa'">
+    <img
+      src="https://www.irradia.com.bo/wp-content/uploads/2019/01/P-POL003-0005.jpg"
+    />
+  </div>
+  <div *ngSwitchCase="'electronica'">
+    <img
+      src="https://merkamax-bolivia.com/wp-content/uploads/2022/10/Televisor-UHD-4K-LG-UQ8050PSb-Merkamax-img-1.jpg"
+    />
+  </div>
+  <div *ngSwitchCase="'hogar'">
+    <img
+      src="https://merkamax-bolivia.com/wp-content/uploads/2021/06/Cocina-BOSCH-HSK25I34SC-PRO549-Merkamax-img-1.jpg"
+    />
+  </div>
+</div>

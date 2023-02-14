@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'to-do-list',
-  templateUrl: './to-do-list.component.html',
-  styleUrls: ['./to-do-list.component.scss'],
+  selector: 'pokemon-list',
+  templateUrl: './pokemon-list.component.html',
+  styleUrls: ['./pokemon-list.component.scss'],
 })
-export class ToDoListComponent implements OnInit {
+export class PokemonListComponent implements OnInit {
   nuevaTarea: string = '';
   listaTareas: string[] = [];
   constructor() {}
