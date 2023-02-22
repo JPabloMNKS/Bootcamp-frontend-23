@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pokemon } from 'src/app/utils/interfaces/pokemon';
+
 
 @Component({
   selector: 'pokemon-card',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemon-card.component.scss'],
 })
 export class PokemonCardComponent {
+  @Input()
+  pokemon!: Pokemon;
+
   constructor() {}
 }

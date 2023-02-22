@@ -1,1 +1,8 @@
-<p>to do list works!</p>
+<section>
+  <br>  
+  <div class="poke-container">
+    <div *ngFor="let pokemon of listOfPokemonsToDisplay">
+      <pokemon-card [pokemon]="pokemon"></pokemon-card>
+    </div>
+  </div>
+</section>
