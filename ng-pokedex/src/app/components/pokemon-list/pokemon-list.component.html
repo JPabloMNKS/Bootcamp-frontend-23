@@ -1,5 +1,9 @@
 <section>
-  <br>  
+  <br>
+  <button id="sort" class="button-pokemon" (click)="sortByName()">
+    {{ sorted ? "Sort by id" : "Sort by name" }}
+  </button>
+  
   <div class="poke-container">
     <div *ngFor="let pokemon of listOfPokemonsToDisplay">
       <pokemon-card [pokemon]="pokemon"></pokemon-card>

@@ -64,4 +64,13 @@ export class PokemonListComponent implements OnInit {
         this.listOfPokemonsToDisplay.push(value);
     });
   }
+
+  sortByName() {
+    if (!this.sorted) {
+      this.listOfPokemonsToDisplay.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      this.listOfPokemonsToDisplay.sort((a, b) => a.id - b.id);
+    }
+    this.sorted = !this.sorted;
+  }
 }
