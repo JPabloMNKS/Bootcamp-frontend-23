@@ -3,6 +3,6 @@ export interface Pokemon {
   id: number;
   name: string;
   image: string;
-  backroundColor: string;
+  backgroundColor: string;
   textColor: string;
 }
